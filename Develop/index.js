@@ -7,7 +7,6 @@ import fs from 'fs';
 const questions = [
     "What is the name of your project?", 
     "Provide a short description explaining the what, why, and how of your project",
-    "Add a table of contents to make it easy for users to find what they need.",
     "What are the steps required to install your project? Provide a step-by-step description of how to get the development environment running.",
     "Provide instructions and examples for use.",
     "Choose a license",
@@ -16,6 +15,7 @@ const questions = [
     "Enter your github username for your users to ask you questions.",
     "Where would you like your README.md file to be stored?"
  ];
+
 
 
 inquirer
@@ -33,42 +33,37 @@ inquirer
       {
         type: 'input',
         message: questions[2],
-        name: 'table',
-      },
-      {
-        type: 'input',
-        message: questions[3],
         name: 'installation',
       },
     {
       type: 'input',
-      message: questions[4],
+      message: questions[3],
       name: 'usage',
     },
     {
       type: 'list',
-      message: questions[5],
+      message: questions[4],
       name: 'license',
       choices: ["Apache License 2.0", "MIT License"]
     },
     {
       type: 'input',
-      message: questions[6],
-      name: 'contributing',
+      message: questions[5],
+      name: 'collaborators',
     }, 
     {
         type: 'input',
-        message: questions[7],
+        message: questions[6],
         name: 'tests',
       },
       {
         type: 'input',
-        message: questions[8],
+        message: questions[7],
         name: 'questions',
       }, 
       {
         type: 'input',
-        message: questions[9],
+        message: questions[8],
         name: 'storage',
       }
   ])
@@ -82,19 +77,61 @@ inquirer
 // TODO: Create a function to write README file
 function writeToFile(data) {
     console.log(data);  
+    let location = data.storage; 
+    let content = 
+`# ${data.project}
 
-    let project = data.project;
-    console.log(project);
+## Description
 
-    //produceReadme(data);
+${data.description} 
+
+## Table of Contents (Optional)
+
+${data.table} 
+
+- [Installation](#installation)
+- [Usage](#usage)
+- [Credits](#credits)
+- [License](#license)
+- [Tests](#tests)
+
+## Installation
+
+${data.installation} 
+
+## Usage
+
+${data.usage} 
+
+To add a screenshot, create an "assets/images" folder in your repository and upload your screenshot to it. Then, using the relative filepath, add it to your README using the following syntax:
+
+    md
+    ![alt text](assets/images/screenshot.png)
+
+## Credits
+
+${data.contributing} 
+
+## License
+
+${data.license} 
+---
+
+## Badges
+
+## Tests
+
+${data.tests}`
+
+
+    produceReadme(content, location);
 
 };
 
 
-/*
+
 
 function produceReadme (content, location) {
-
 
   fs.writeFile(`${location}`, content, err => {
     if (err) {
@@ -106,7 +143,7 @@ function produceReadme (content, location) {
 
 }; 
 
-*/
+
 
 
 
