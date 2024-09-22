@@ -14,124 +14,182 @@ const questions = [
     "Write tests for your application. Then provide examples on how to run them here.",
     "Enter your github username for your users to ask you questions.",
     "Where would you like your README.md file to be stored?"
- ];
+];
+
+const prompts = [
+    "project", "description", "installation", "usage", "license", "collaborators", "tests", "questions", "storage" 
+];
 
 
+// TODO: Create a function to initialize app
+function init() {
 
-inquirer
-  .prompt([
-    {
-        type: 'input',
-        message: questions[0],
-        name: 'project',
-      },
-      {
-        type: 'input',
-        message: questions[1],
-        name: 'description',
-      },
-      {
-        type: 'input',
-        message: questions[2],
-        name: 'installation',
-      },
-    {
-      type: 'input',
-      message: questions[3],
-      name: 'usage',
-    },
-    {
-      type: 'list',
-      message: questions[4],
-      name: 'license',
-      choices: ["Apache License 2.0", "MIT License"]
-    },
-    {
-      type: 'input',
-      message: questions[5],
-      name: 'collaborators',
-    }, 
-    {
-        type: 'input',
-        message: questions[6],
-        name: 'tests',
-      },
-      {
-        type: 'input',
-        message: questions[7],
-        name: 'questions',
-      }, 
-      {
-        type: 'input',
-        message: questions[8],
-        name: 'storage',
-      }
-  ])
-  .then((data) => {
-    writeToFile(data);
-  }
-  );
+    /*for (let i = 0; i <questions.length; i++) {
+        inquirer
+        .prompt([
+        {
+            type: 'input',
+            message: questions[i],
+            name: prompts[i],
+        }
+        ])
+        .then((data) => {
+            writeToFile(data);
+        }
+        );*/
 
+    
+
+       inquirer
+            .prompt([
+            {
+                type: 'input',
+                message: questions[0],
+                name: 'project',
+            },
+            {
+                type: 'input',
+                message: questions[1],
+                name: 'description',
+            },
+            {
+                type: 'input',
+                message: questions[2],
+                name: 'installation',
+            },
+            {
+                type: 'input',
+                message: questions[3],
+                name: 'usage',
+            },
+            {
+                type: 'list',
+                message: questions[4],
+                name: 'license',
+                choices: ["Apache License 2.0", "MIT License"]
+            },
+            {
+                type: 'input',
+                message: questions[5],
+                name: 'collaborators',
+            }, 
+            {
+                type: 'input',
+                message: questions[6],
+                name: 'tests',
+            },
+            {
+                type: 'input',
+                message: questions[7],
+                name: 'questions',
+            }, 
+            {
+                type: 'input',
+                message: questions[8],
+                name: 'storage',
+            }
+        ])
+        .then((data) => {
+            generateReadMe(data);
+        }
+        );
+ }; 
 
 
 // TODO: Create a function to write README file
-function writeToFile(data) {
+function generateReadMe(data) {
     console.log(data);  
     let location = data.storage; 
     let content = 
-`# ${data.project}
+            `# ${data.project}
 
-## Description
+            ## Description
 
-${data.description} 
+            ${data.description} 
 
-## Table of Contents (Optional)
+            ## Table of Contents
 
-${data.table} 
+            - [Installation](#installation)
+            - [Usage](#usage)
+            - [Credits](#credits)
+            - [License](#license)
+            - [Tests](#tests)
 
-- [Installation](#installation)
-- [Usage](#usage)
-- [Credits](#credits)
-- [License](#license)
-- [Tests](#tests)
+            ## Installation
 
-## Installation
+            ${data.installation} 
 
-${data.installation} 
+            ## Usage
 
-## Usage
+            ${data.usage} 
 
-${data.usage} 
+            To add a screenshot, create an "assets/images" folder in your repository and upload your screenshot to it. Then, using the relative filepath, add it to your README using the following syntax:
 
-To add a screenshot, create an "assets/images" folder in your repository and upload your screenshot to it. Then, using the relative filepath, add it to your README using the following syntax:
+                md
+                ![alt text](assets/images/screenshot.png)
 
-    md
-    ![alt text](assets/images/screenshot.png)
+            ## Credits
 
-## Credits
+            ${data.contributing} 
 
-${data.contributing} 
+            ## License
 
-## License
+            ${data.license} 
+            ---
 
-${data.license} 
----
+            ## Badges
 
-## Badges
+            ## Tests
 
-## Tests
+            ${data.tests}`
 
-${data.tests}`
-
-
-    produceReadme(content, location);
+    renderLicenseBadge(data.license);
+    writeToFile(content, location);
 
 };
 
 
+// TODO: Create a function that returns a license badge based on which license is passed in
+// If there is no license, return an empty string
+function renderLicenseBadge(license) {
+    console.log(license);
+    let badge; 
+    if (license) {
+       
+        switch (license) {
+            case "Apache License 2.0":
+                badge = "Apache badge";
+                break;
+            case "MIT License":
+                badge = "MIT badge"; 
+        }
 
+        console.log(badge); 
 
-function produceReadme (content, location) {
+    } else {
+        return ""; 
+    }
+};
+
+/*
+// TODO: Create a function that returns the license link
+// If there is no license, return an empty string
+function renderLicenseLink(license) {}
+
+// TODO: Create a function that returns the license section of README
+// If there is no license, return an empty string
+function renderLicenseSection(license) {}
+
+// TODO: Create a function to generate markdown for README
+function generateMarkdown(data) {
+  return `# ${data.title}
+
+`;
+}
+
+*/
+
+function writeToFile (content, location) {
 
   fs.writeFile(`${location}`, content, err => {
     if (err) {
@@ -144,14 +202,7 @@ function produceReadme (content, location) {
 }; 
 
 
-
-
-
-
-// TODO: Create a function to initialize app
-////function init() {}
-
 // Function call to initialize app
-//init();
+init();
 
 
