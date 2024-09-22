@@ -1,9 +1,9 @@
-# fdkaou
-[![License](https://img.shields.io/badge/License-EPL_1.0-red.svg)](https://opensource.org/licenses/EPL-1.0)
+# jafdksop
+[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
 ## Description
 
-dfsaiopu 
+rqitopu 
 
 ## Table of Contents
 - [Installation](#installation)
@@ -15,25 +15,28 @@ dfsaiopu
 
 ## Installation
 
-dfsaiupo 
+trewiopu 
 
 ## Usage
 
-fdsauipo 
+rtwuiop 
 
 ## License
 
-Eclipse Public License v.10 
-https://opensource.org/license/EPL-1.0
+Apache License 2.0
+
+The license you have chosen is Apache License 2.0.
+
+https://opensource.org/license/apache-2-0
 
 ## Contributing
 
-dsaiuop 
+truewip 
 
 ## Tests
 
-fdsaip
+guieowp
 
 ## Questions
 
-For questions visit https://github.com/afduiop or write to dfuip.
+For questions visit https://github.com/weiorpu or write to wioqup.

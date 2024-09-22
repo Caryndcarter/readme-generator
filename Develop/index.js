@@ -96,10 +96,14 @@ function init() {
             }
         ])
         .then((data) => {
-           const returnedbadge = renderLicenseBadge(data.license);
+
+            const returnedbadge = renderLicenseBadge(data.license);
            const returnedlink = renderLicenseLink(data.license); 
+           const licenseSection = renderLicenseSection(data.license); 
+           const licenseMarkdown = generateMarkdown(data.license, returnedlink, licenseSection); 
+          
         
-            writeReadMe(data, returnedbadge, returnedlink);
+            writeReadMe(data, returnedbadge, licenseMarkdown);
         }
         );
  }; 
@@ -162,11 +166,74 @@ function renderLicenseLink(license) {
         return ""; 
     }
 
+};
+
+// TODO: Create a function that returns the license section of README
+// If there is no license, return an empty string
+function renderLicenseSection(license) {
+    
+    let section; 
+
+    if (license) {
+       
+        switch (license) {
+            case "Apache License 2.0":
+                section= "The license you have chosen is Apache License 2.0.";
+                break;
+            case "MIT License":
+                section = "The license you have chosen is MIT License."; 
+                break;
+            case "Eclipse Public License v.10":
+                section = "The license you have chosen is Eclipse Public License v.10.";
+                break;
+            case "Mozilla Public License 2.0":
+                section = "The license you have chosen is Mozilla Public License 2.0.";
+        }
+
+        return section; 
+        
+    } else {
+        return ""; 
+    }
+
+
+};
+
+
+// TODO: Create a function that returns the license section of README
+// If there is no license, return an empty string
+function generateMarkdown(license, link, section) {
+
+    if (license) {
+
+        console.log(license + "coming through");
+        console.log(link + "link through" );
+        console.log(section + "section through");
+
+    let licenseMark = 
+`## License
+
+${license}
+
+${section}
+
+${link}`
+
+    return licenseMark; 
+
+    } else {
+
+    return ""; 
+
+    }
+
 }
 
 
+
 // TODO: Create a function to write README file
-function writeReadMe(data, badge, link) {
+function writeReadMe(data, badge, licenseMarkdown) {
+    console.log(licenseMarkdown + "markdown");
    
     let location = data.storage; 
     let content = 
@@ -193,10 +260,7 @@ ${data.installation}
 
 ${data.usage} 
 
-## License
-
-${data.license} 
-${link}
+${licenseMarkdown}
 
 ## Contributing
 
@@ -232,38 +296,6 @@ function writeToFile (content, location) {
 init();
 
 
-
-
-
-
-
-
-
-
-
-/*
-function generateMarkdown (license) {
-    let licenseMarkdown = 
-    `## License
-    ${license}
-    `
-    return licenseMarkdown; 
-}; */
-
-/*
-
-
-// TODO: Create a function that returns the license section of README
-// If there is no license, return an empty string
-function renderLicenseSection(license) {}
-
-// TODO: Create a function to generate markdown for README
-function generateMarkdown(data) {
-  return `# ${data.title}
-
-`;
-}
-*/
 
 
 
