@@ -67,7 +67,7 @@ function init() {
                 type: 'list',
                 message: questions[4],
                 name: 'license',
-                choices: ["Apache License 2.0", "MIT License", "IBM Public Common License Version 1.0", "Mozilla Public License 2.0"];
+                choices: ["Apache License 2.0", "MIT License", "Eclipse Public License v.10", "Mozilla Public License 2.0"]
             },
             {
                 type: 'input',
@@ -96,12 +96,14 @@ function init() {
             }
         ])
         .then((data) => {
-           let badge = renderLicenseBadge(data.license);
-           let link = renderLicenseLink(data.license); 
-            writeReadMe(data, badge, link);
+           const returnedbadge = renderLicenseBadge(data.license);
+           const returnedlink = renderLicenseLink(data.license); 
+        
+            writeReadMe(data, returnedbadge, returnedlink);
         }
         );
  }; 
+
 
 
 // TODO: Create a function that returns a license badge based on which license is passed in
@@ -194,7 +196,7 @@ ${data.usage}
 ## License
 
 ${data.license} 
-${data.link}
+${link}
 
 ## Contributing
 
@@ -212,7 +214,7 @@ For questions visit https://github.com/${data.questions} or write to ${data.emai
 
 };
 
-
+//Function to write the README file to the local file system
 function writeToFile (content, location) {
 
     fs.writeFile(`${location}`, content, err => {

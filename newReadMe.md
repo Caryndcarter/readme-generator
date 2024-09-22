@@ -1,41 +1,39 @@
-# wroui
+# fdkaou
+[![License](https://img.shields.io/badge/License-EPL_1.0-red.svg)](https://opensource.org/licenses/EPL-1.0)
 
 ## Description
 
-ioepu 
+dfsaiopu 
 
 ## Table of Contents
- - [Installation](#installation)
- - [Usage](#usage)
-- [Credits](#credits)
+- [Installation](#installation)
+- [Usage](#usage)
 - [License](#license)
- - [Tests](#tests)
+- [Contributing](#contributing)
+- [Tests](#tests)
+- [Questions](#questions)
 
 ## Installation
 
-iopu 
+dfsaiupo 
 
 ## Usage
 
-iuop 
-
-To add a screenshot, create an "assets/images" folder in your repository and upload your screenshot to it. Then, using the relative filepath, add it to your README using the following syntax:
-
-md
-![alt text](assets/images/screenshot.png)
-
-## Credits
-
-undefined 
+fdsauipo 
 
 ## License
 
-MIT License 
----
+Eclipse Public License v.10 
+https://opensource.org/license/EPL-1.0
 
-## Badges
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+## Contributing
+
+dsaiuop 
 
 ## Tests
 
-weiorpu
+fdsaip
+
+## Questions
+
+For questions visit https://github.com/afduiop or write to dfuip.
