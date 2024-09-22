@@ -90,60 +90,60 @@ function init() {
             }
         ])
         .then((data) => {
-            generateReadMe(data);
+           let badge = renderLicenseBadge(data.license);
+            writeReadMe(data, badge);
         }
         );
  }; 
 
 
 // TODO: Create a function to write README file
-function generateReadMe(data) {
-    console.log(data);  
+function writeReadMe(data, badge) {
+   
     let location = data.storage; 
     let content = 
-            `# ${data.project}
+`# ${data.project}
 
-            ## Description
+## Description
 
-            ${data.description} 
+${data.description} 
 
-            ## Table of Contents
+## Table of Contents
+ - [Installation](#installation)
+ - [Usage](#usage)
+- [Credits](#credits)
+- [License](#license)
+ - [Tests](#tests)
 
-            - [Installation](#installation)
-            - [Usage](#usage)
-            - [Credits](#credits)
-            - [License](#license)
-            - [Tests](#tests)
+## Installation
 
-            ## Installation
+${data.installation} 
 
-            ${data.installation} 
+## Usage
 
-            ## Usage
+${data.usage} 
 
-            ${data.usage} 
+To add a screenshot, create an "assets/images" folder in your repository and upload your screenshot to it. Then, using the relative filepath, add it to your README using the following syntax:
 
-            To add a screenshot, create an "assets/images" folder in your repository and upload your screenshot to it. Then, using the relative filepath, add it to your README using the following syntax:
+md
+![alt text](assets/images/screenshot.png)
 
-                md
-                ![alt text](assets/images/screenshot.png)
+## Credits
 
-            ## Credits
+${data.collaborators} 
 
-            ${data.contributing} 
+## License
 
-            ## License
+${data.license} 
 
-            ${data.license} 
-            ---
+## Badges
 
-            ## Badges
+${badge}
 
-            ## Tests
+## Tests
 
-            ${data.tests}`
+${data.tests}`
 
-    renderLicenseBadge(data.license);
     writeToFile(content, location);
 
 };
@@ -158,18 +158,48 @@ function renderLicenseBadge(license) {
        
         switch (license) {
             case "Apache License 2.0":
-                badge = "Apache badge";
+                badge = "[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)";
                 break;
             case "MIT License":
-                badge = "MIT badge"; 
+                badge = "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)"; 
         }
 
         console.log(badge); 
 
+        return badge; 
+        
     } else {
         return ""; 
     }
 };
+
+
+
+function writeToFile (content, location) {
+
+    fs.writeFile(`${location}`, content, err => {
+      if (err) {
+        console.error(err);
+      } else {
+        // file written successfully
+      }
+    });
+  
+  }; 
+
+
+// Function call to initialize app
+init();
+
+/*
+function generateMarkdown (license, badge) {
+    let licenseMarkdown = 
+    `## License
+    ${license}
+    ${badge}
+    `
+    return licenseMarkdown; 
+}; */
 
 /*
 // TODO: Create a function that returns the license link
@@ -186,23 +216,11 @@ function generateMarkdown(data) {
 
 `;
 }
-
 */
 
-function writeToFile (content, location) {
-
-  fs.writeFile(`${location}`, content, err => {
-    if (err) {
-      console.error(err);
-    } else {
-      // file written successfully
-    }
-  });
-
-}; 
 
 
-// Function call to initialize app
-init();
+
+
 
 
