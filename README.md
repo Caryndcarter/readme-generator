@@ -53,7 +53,11 @@ https://opensource.org/license/apache-2-0
 
 ## Contributing
 
+Contributors: 
+
 Caryn Carter https://github.com/Caryndcarter 
+
+To contribute, contact carter.caryn@gmail.com.
 
 ## Tests
 

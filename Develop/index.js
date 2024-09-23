@@ -261,6 +261,8 @@ ${licenseMarkdown}
 
 ${data.collaborators} 
 
+To contribute, contact ${data.email}.
+
 ## Tests
 
 ${data.tests}
