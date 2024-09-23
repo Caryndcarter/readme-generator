@@ -40,7 +40,7 @@ Begin by running ``node index.js`` in the command line. Once you are prompted by
  
  Your new file will appear in the file location on your local hard drive corresponding to the file path you enter and provide to Inquirer.  
 
-![Demo](./develop/assets/readme-generator-screenshot.png)
+![Demo](./dev/assets/readme-generator-screenshot.png)
 
 
 ## License
