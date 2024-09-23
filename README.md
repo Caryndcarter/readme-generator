@@ -68,4 +68,3 @@ Tests for this application have not been written at this time.  When they are wr
 
 For questions visit https://github.com/caryndcarter or write to carter.caryn@gmail.com.
 
-/Users/caryncarter/Coding/myreadme-generator/README.md
