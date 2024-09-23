@@ -178,16 +178,16 @@ function renderLicenseSection(license) {
        
         switch (license) {
             case "Apache License 2.0":
-                section= "The license you have chosen is Apache License 2.0.";
+                section= "The license for this application is Apache License 2.0.";
                 break;
             case "MIT License":
-                section = "The license you have chosen is MIT License."; 
+                section = "The license for this application is MIT License."; 
                 break;
             case "Eclipse Public License v.10":
-                section = "The license you have chosen is Eclipse Public License v.10.";
+                section = "The license for this application Eclipse Public License v.10.";
                 break;
             case "Mozilla Public License 2.0":
-                section = "The license you have chosen is Mozilla Public License 2.0.";
+                section = "The license for this apaplication is Mozilla Public License 2.0.";
         }
 
         return section; 
@@ -205,10 +205,6 @@ function renderLicenseSection(license) {
 function generateMarkdown(license, link, section) {
 
     if (license) {
-
-        console.log(license + "coming through");
-        console.log(link + "link through" );
-        console.log(section + "section through");
 
     let licenseMark = 
 `## License
@@ -233,7 +229,6 @@ ${link}`
 
 // TODO: Create a function to write README file
 function writeReadMe(data, badge, licenseMarkdown) {
-    console.log(licenseMarkdown + "markdown");
    
     let location = data.storage; 
     let content = 
