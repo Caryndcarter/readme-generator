@@ -1,5 +1,5 @@
 # README.md Generator
-
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Description
 
@@ -45,11 +45,11 @@ Begin by running ``node index.js`` in the command line. Once you are prompted by
 
 ## License
 
-Apache License 2.0
+MIT License
 
-The license for this application is Apache License 2.0.
+The license for this application is MIT License.
 
-https://opensource.org/license/apache-2-0
+https://opensource.org/license/MIT
 
 ## Contributing
 
