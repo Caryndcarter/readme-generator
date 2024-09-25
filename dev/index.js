@@ -23,23 +23,7 @@ const prompts = [
 
 
 // TODO: Create a function to initialize app
-function init() {
-
-    /*for (let i = 0; i <questions.length; i++) {
-        inquirer
-        .prompt([
-        {
-            type: 'input',
-            message: questions[i],
-            name: prompts[i],
-        }
-        ])
-        .then((data) => {
-            writeToFile(data);
-        }
-        );*/
-
-    
+function init() {    
 
        inquirer
             .prompt([
